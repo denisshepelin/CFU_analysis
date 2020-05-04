@@ -108,7 +108,12 @@ jobs:
           python -m PyInstaller -n CFU_App_latest --windowed --onefile --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl' scripts/collect_particles_gui.py
       - name: See dist directory
         run: ls dist
+      - name: Make .dmg file
+        run: |
+          pushd dist
+          hdiutil create ./CFU_App_latest.dmg -srcfolder CFU_App_latest.app -ov
+          popd
       - uses: actions/upload-artifact@v1
         with:
-          name: CFU_App_latest.app
-          path: dist/CFU_App_latest.app
+          name: CFU_App_latest.dmg
+          path: dist/CFU_App_latest.dmg
