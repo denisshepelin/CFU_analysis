@@ -105,7 +105,7 @@ jobs:
           pip install -r requirements_dev.txt
       - name: Run PyInstaller
         run: |
-          python -m PyInstaller -n CFU_App_latest --windowed --onedir --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl' scripts/collect_particles_gui.py
+          python -m PyInstaller -n CFU_App_latest --windowed --onefile --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl' scripts/collect_particles_gui.py
       - name: See dist directory
         run: ls dist
       - uses: actions/upload-artifact@v1
