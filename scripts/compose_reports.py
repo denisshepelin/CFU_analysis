@@ -65,7 +65,7 @@ def merge_reports(reports, save_path):
 
     # go through each row and paste Image in a correct column
     writer = pd.ExcelWriter(save_path / f"composed_report.xlsx", engine="xlsxwriter")
-    composed_report.to_excel(writer, sheet_name="Sheet1")
+    composed_report.to_excel(writer, sheet_name="Counts")
     worksheet = writer.sheets['Sheet1']
     worksheet.set_default_row(130)
     # corresponds to D

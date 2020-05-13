@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 from scripts.compose_reports import compose_reports
 from scripts.config import FONT
 from scripts.generate_report import generate_report
+from scripts.analyze_report import analyze_report
 
 if __name__ == "__main__":
     sg.theme("DarkAmber")  # Add a touch of color
@@ -20,8 +21,14 @@ if __name__ == "__main__":
             )
         ],
         [
+            sg.Text(
+                "С) Analyze reports converting counts to CFUs (press Analyze reports)"
+            )
+        ],
+        [
             sg.Button("Generate reports"),
             sg.Button("Compose reports"),
+            sg.Button("Analyze report"),
             sg.Button("Quit"),
         ],
     ]
@@ -36,5 +43,7 @@ if __name__ == "__main__":
             generate_report()
         if event in (None, "Compose reports"):
             compose_reports()
+        if event in (None, "Analyze report"):
+            analyze_report()
 
     main_window.close()
